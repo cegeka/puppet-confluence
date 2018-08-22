@@ -5,7 +5,7 @@ Facter.add(:confluence_version) do
     if confluence_process.nil?
       'unknown'
     else
-      confluence_process.scan(%r{\d+\.\d+\.\d+}).first
+      confluence_process.scan(%r{\d+\.\d+\.\d+})[1]
     end
   end
 end
