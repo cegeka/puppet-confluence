@@ -36,5 +36,9 @@ describe 'nginx' do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end
+    
+    describe file '/data/confluence' do
+      it { is_expected.to be_directory }
+    end  
   end
 end
