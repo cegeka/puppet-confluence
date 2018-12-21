@@ -19,7 +19,6 @@ describe 'nginx' do
         version      => '6.10.0',
         checksum     => '6c982c7f4356e2f121022fc87dc70a45',
         javahome     => '/usr/java/jdk1.8.0_05/',
-        data_dir     => '/data/confluence',
       }
       EOS
 
@@ -28,17 +27,13 @@ describe 'nginx' do
       apply_manifest(pp, :catch_changes => true)
     end
 
-    describe port(443) do
+    describe port(8080) do
       it { is_expected.to be_listening }
     end
 
     describe service('confluence') do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
-    end
-    
-    describe file '/data/confluence' do
-      it { is_expected.to be_directory }
-    end  
+    end 
   end
 end
