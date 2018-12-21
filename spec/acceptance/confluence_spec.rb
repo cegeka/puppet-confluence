@@ -20,7 +20,7 @@ describe 'nginx' do
         checksum     => '6c982c7f4356e2f121022fc87dc70a45',
         javahome     => '/usr/java/jdk1.8.0_77/',
       }
-      class { 'confluence::facts': }
+   #   class { 'confluence::facts': }
       EOS
 
       # Run it twice and test for idempotency
