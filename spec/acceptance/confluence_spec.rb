@@ -10,17 +10,17 @@ describe 'nginx' do
       include 'cegekarepos'
       include 'profile::package_management'
       Yum::Repo <| title == 'cegeka-unsigned' |>
-      sunjdk::instance { 'jdk-1.8.0_77-fcs':
+      sunjdk::instance { 'jdk-1.8.0_05-fcs':
         ensure      => 'present',
-        jdk_version => '1.8.0_77-fcs'
+        jdk_version => '1.8.0_05-fcs'
       }
 
       class { 'confluence':
         version      => '6.10.0',
         checksum     => '6c982c7f4356e2f121022fc87dc70a45',
-        javahome     => '/usr/java/jdk1.8.0_77/',
+        javahome     => '/usr/java/jdk1.8.0_05/',
+        data_dir     => '/data/confluence',
       }
-   #   class { 'confluence::facts': }
       EOS
 
       # Run it twice and test for idempotency
