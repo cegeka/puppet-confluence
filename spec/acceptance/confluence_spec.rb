@@ -34,6 +34,9 @@ describe 'nginx' do
     describe service('confluence') do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
-    end 
+    end
+    describe file '/opt/confluence' do	
+      it { is_expected.to be_directory }	
+    end
   end
 end
