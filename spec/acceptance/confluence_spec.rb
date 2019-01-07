@@ -12,7 +12,7 @@ describe 'confluence' do
       Yum::Repo <| title == 'cegeka-unsigned' |>
       sunjdk::instance { 'jdk-1.8.0_05-fcs':
         ensure      => 'present',
-        jdk_version => '1.8.0_05-fcs'
+        jdk_version => '1.8.0_05-fcs',
         pkg_name    => 'jdk1.8.0_05'
       }
 
