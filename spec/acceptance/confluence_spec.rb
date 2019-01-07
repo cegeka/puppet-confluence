@@ -1,6 +1,6 @@
   require 'spec_helper_acceptance'
 
-describe 'nginx' do
+describe 'apache' do
 
   describe 'running puppet code' do
     it 'should work with no errors' do
@@ -27,10 +27,15 @@ describe 'nginx' do
       apply_manifest(pp, :catch_changes => true)
     end
 
+    describe port(8080) do
+      it { is_expected.to be_listening }
+    end
+
     describe service('confluence') do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end
+
     describe file '/opt/confluence' do	
       it { is_expected.to be_directory }	
     end
