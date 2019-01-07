@@ -1,6 +1,6 @@
   require 'spec_helper_acceptance'
 
-describe 'nginx' do
+describe 'confluence' do
 
   describe 'running puppet code' do
     it 'should work with no errors' do
@@ -20,16 +20,11 @@ describe 'nginx' do
         checksum     => '6c982c7f4356e2f121022fc87dc70a45',
         javahome     => '/usr/java/jdk1.8.0_05/',
       }
-      class { 'nginx': }
       EOS
 
       # Run it twice and test for idempotency
       apply_manifest(pp, :catch_failures => true)
       apply_manifest(pp, :catch_changes => true)
-    end
-
-    describe port(443) do
-      it { is_expected.to be_listening }
     end
 
     describe service('confluence') do
