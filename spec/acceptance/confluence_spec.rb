@@ -13,13 +13,14 @@ describe 'confluence' do
       sunjdk::instance { 'jdk-1.8.0_05-fcs':
         ensure      => 'present',
         jdk_version => '1.8.0_05-fcs',
-        pkg_name    => 'jdk-1.8.0_05-fcs.x86_64'
+        pkg_name    => 'jdk-1.8.0_05-fcs',
+        require     => Yum::Repo['cegeka-unsigned']
       }
 
       class { 'confluence':
         version      => '6.10.0',
         checksum     => '6c982c7f4356e2f121022fc87dc70a45',
-        javahome     => '/usr/java/jdk1.8.0_05/',
+        javahome     => '/usr/java/jdk1.8.0_05/'
       }
       EOS
 
