@@ -10,10 +10,10 @@ describe 'confluence' do
       include 'cegekarepos'
       include 'profile::package_management'
       Yum::Repo <| title == 'cegeka-unsigned' |>
-      sunjdk::instance { 'jdk-1.8.0_05-fcs':
+      sunjdk::instance { 'jdk-1.7.0_06-fcs':
         ensure      => 'present',
-        jdk_version => '1.8.0_05-fcs',
-        pkg_name    => 'jdk-1.8.0_05-fcs',
+        jdk_version => '1.7.0_06-fcs',
+        pkg_name    => 'jdk-1.7.0_06-fcs',
         require     => Yum::Repo['cegeka-unsigned']
       }
 
