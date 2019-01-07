@@ -1,7 +1,7 @@
 mod 'confluence',
   :git => 'https://github.com/cegeka/puppet-confluence'
-mod 'apache',
-  :git => 'https://github.com/cegeka/puppet-apache'
+mod 'nginx',
+  :git => 'https://github.com/cegeka/puppet-nginx'
 mod 'stdlib',
   :git => 'https://github.com/cegeka/puppet-stdlib'
 mod 'archive',
