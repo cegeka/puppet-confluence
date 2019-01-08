@@ -19,7 +19,7 @@ describe 'confluence' do
         version      => '6.10.0',
         checksum     => '6c982c7f4356e2f121022fc87dc70a45',
         javahome     => '/usr/java/jdk1.8.0_05/',
-        require      => Package['jdk-1.8.0_05-fcs']
+        require      => Sunjdk::Instance['jdk-1.8.0_05-fcs']
       }
       EOS
       apply_manifest(pp, :catch_failures => true)
