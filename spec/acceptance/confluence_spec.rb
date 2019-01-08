@@ -13,7 +13,6 @@ describe 'confluence' do
       sunjdk::instance { 'jdk-1.7.0_06-fcs':
         ensure      => 'present',
         jdk_version => '1.7.0_06-fcs',
-        pkg_name    => 'jdk-1.7.0_06-fcs',
         require     => Yum::Repo['cegeka-unsigned']
       }
 
