@@ -22,10 +22,7 @@ describe 'confluence' do
         javahome     => '/usr/java/jdk1.8.0_05/'
       }
       EOS
-
-      # Run it twice and test for idempotency
       apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_changes => true)
     end
 
     describe service('confluence') do
